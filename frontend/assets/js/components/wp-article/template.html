@@ -1,0 +1,14 @@
+<div class="media">
+    <div class="media-left">
+        <a :href="article.link" target="_blank">
+            <img class="media-object" src="https://placekitten.com/g/200/150">
+        </a>
+    </div>
+    <div class="media-body">
+        <h4 class="media-heading">{{article.title.rendered}}</h4>
+        <p>{{{article.excerpt.rendered}}}</p>
+        <p><a :href="article.link" target="_blank">記事本文へ</a></p>
+    </div>
+    <hr>
+</div>
+
