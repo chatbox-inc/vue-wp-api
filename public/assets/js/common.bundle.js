@@ -58,32 +58,42 @@
 	var loadingDuration = _require.loadingDuration;
 	
 	
-	var vue;
+	var data = {
+	    articles: [],
+	    page: null,
+	    loading: true,
+	    hasMore: true
+	};
 	
 	var opt = {
 	    el: "#app",
-	    data: { articles: [], page: null, hasMore: true },
+	    data: data,
 	    methods: {
 	        more: function more() {
-	            var loadingPage = vue.page + 1;
-	            vue.page = null; //ページがnullの時はローディング表示
+	            data.loading = true;
+	            data.page++;
+	
+	            // 画面スクロール
 	            $("html,body").animate({
 	                scrollTop: $(".spinnerBox").eq(0).offset().top
 	            }, "fast");
-	            loader(api, loadingPage, loadingDuration).then(function (articles) {
+	
+	            // API呼び出し
+	            loader(api, data.page, loadingDuration).then(function (articles) {
 	                if (articles.length) {
-	                    vue.articles = vue.articles.concat(articles);
+	                    data.articles = data.articles.concat(articles);
 	                } else {
-	                    vue.hasMore = false;
+	                    data.hasMore = false;
 	                }
-	                vue.page = loadingPage;
+	                data.loading = false;
 	            });
 	        }
 	    },
 	    created: function created(vm) {
 	        loader(api, 1, loadingDuration).then(function (articles) {
-	            vue.articles = articles;
-	            vue.page = 1;
+	            data.articles = articles;
+	            data.page = 1;
+	            data.loading = false;
 	        });
 	    }
 	};
@@ -92,7 +102,7 @@
 	Vue.component("wp-header", __webpack_require__(7));
 	
 	$(function () {
-	    vue = new Vue(opt);
+	    new Vue(opt);
 	});
 
 /***/ },

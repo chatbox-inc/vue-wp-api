@@ -49,9 +49,9 @@
     </div>
     <wp-article v-for="article in articles" :article="article"></wp-article>
     <div class="spinnerBox">
-        <div v-if="page===null" class="spinner"></div>
+        <div v-if="loading" class="spinner"></div>
     </div>
-    <div class="text-center" v-if="hasMore && page">
+    <div class="text-center" v-if="hasMore && !loading">
         <a class="btn btn-default" @click="more" class="btn btn-default">もっと読む</a>
     </div>
 
