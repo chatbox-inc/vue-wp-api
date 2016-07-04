@@ -18,7 +18,10 @@ const webpackConfig = {
         ]
     },
     resolve: {
-        extensions:["",".js"]
+        extensions:["",".js"],
+        alias:{
+            //"vue": process.cwd()+"/frontend/assets/js/vue2.min.js"
+        }
     },
     plugins:[],
     dev: true,

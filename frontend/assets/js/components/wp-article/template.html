@@ -6,7 +6,7 @@
     </div>
     <div class="media-body">
         <h4 class="media-heading">{{article.title.rendered}}</h4>
-        <p>{{{article.excerpt.rendered}}}</p>
+        <p v-html="article.excerpt.rendered"></p>
         <p><a :href="article.link" target="_blank">記事本文へ</a></p>
     </div>
     <hr>

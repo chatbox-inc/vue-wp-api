@@ -48,6 +48,8 @@
 	
 	var Vue = __webpack_require__(1);
 	
+	console.log(Vue.version);
+	
 	var loader = __webpack_require__(3);
 	
 	var _require = __webpack_require__(4);
@@ -10377,7 +10379,7 @@
 /* 6 */
 /***/ function(module, exports) {
 
-	module.exports = "<div class=\"media\">\n    <div class=\"media-left\">\n        <a :href=\"article.link\" target=\"_blank\">\n            <img class=\"media-object\" src=\"https://placekitten.com/g/200/150\">\n        </a>\n    </div>\n    <div class=\"media-body\">\n        <h4 class=\"media-heading\">{{article.title.rendered}}</h4>\n        <p>{{{article.excerpt.rendered}}}</p>\n        <p><a :href=\"article.link\" target=\"_blank\">記事本文へ</a></p>\n    </div>\n    <hr>\n</div>\n\n";
+	module.exports = "<div class=\"media\">\n    <div class=\"media-left\">\n        <a :href=\"article.link\" target=\"_blank\">\n            <img class=\"media-object\" src=\"https://placekitten.com/g/200/150\">\n        </a>\n    </div>\n    <div class=\"media-body\">\n        <h4 class=\"media-heading\">{{article.title.rendered}}</h4>\n        <p v-html=\"article.excerpt.rendered\"></p>\n        <p><a :href=\"article.link\" target=\"_blank\">記事本文へ</a></p>\n    </div>\n    <hr>\n</div>\n\n";
 
 /***/ },
 /* 7 */
