@@ -29,7 +29,7 @@ const webpackConfig = {
 gulp.task("webpack",() => {
     gulp.src([`frontend/assets/js/**/*.js`])
         .pipe(webpack(webpackConfig))
-        .pipe(gulp.dest(`${dest}/assets/js/`))
+        .pipe(gulp.dest(`public/assets/js/`))
 
 })
 

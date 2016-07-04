@@ -2,6 +2,8 @@
 
 const Vue = require("vue")
 
+console.log(Vue.version)
+
 const loader = require("./loader.js")
 const {api,loadingDuration} = require("./setting.js")
 
