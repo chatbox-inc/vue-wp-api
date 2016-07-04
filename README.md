@@ -67,3 +67,11 @@ Vue.component("wp-article",require("./components/wp-article/"))
 ````
 <wp-article v-for="article in articles" :article="article"></wp-article>
 ````
+
+### vue2.0 について
+
+現在開発中のversion2.0 のリリースは 1.0と高い互換性を持った形で開発が進んでいます。
+
+https://github.com/vuejs/vue/tree/next
+
+gulpfile.js内の resolve.alias の項目をコメントインすることでvue2.0版のコードを試すことが出来ます。
