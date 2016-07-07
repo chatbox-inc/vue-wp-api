@@ -2,7 +2,6 @@
 const gulp = require("gulp")
 const webpack = require("gulp-webpack")
 const browserSync = require("browser-sync");
-const jade = require("gulp-jade");
 
 const webpackConfig = {
     "entry": {
@@ -22,7 +21,6 @@ const webpackConfig = {
         extensions:["",".js"],
         alias:{
             //"vue": process.cwd()+"/frontend/assets/js/libs/vue2.min.js"
-            "vue": process.cwd()+"/frontend/assets/js/libs/vue.min.js"
         }
     },
     plugins:[],
@@ -40,22 +38,6 @@ gulp.task("webpack",() => {
 gulp.task("watch:webpack",() => gulp.watch([
     "frontend/assets/js/**/*",
 ],["webpack"]) )
-
-//gulp.task("jade",() => {
-//    gulp.src([`frontend/assets/tmpl/**/*.jade`])
-//        .pipe(jade({
-//            locals: {},
-//            pretty:true
-//        }))
-//        .pipe(gulp.dest(`public/`))
-//
-//})
-//
-//gulp.task("watch:jade",() => gulp.watch([
-//    "frontend/assets/tmpl/**/*",
-//],["jade"]) )
-
-
 
 const browserSyncConfig = {
     server:{
@@ -78,12 +60,10 @@ gulp.task("server",() => {
 
 gulp.task("watch",[
     "watch:webpack",
-    //"watch:jade",
 ])
 
 gulp.task("build",[
     "webpack",
-    //"jade"
 ])
 
 gulp.task("default",["watch","server"])

@@ -1,12 +1,16 @@
 "use strict"
 
 const Vue = require("vue")
-const VueRouter = require("vue-router")
-
-Vue.use(VueRouter)
 
 console.log(Vue.version)
 
+Vue.component("wp-article",require("./components/wp-article/"))
+
 $(()=>{
-    require("./pages/").start({},"#app")
+    var app = new Vue({
+        el: "#app",
+        data: {
+            page: require("./pages/list/")
+        }
+    })
 })

@@ -12,9 +12,6 @@ const Component = Vue.extend({
     data: ()=> {
         return data
     },
-    components:{
-        "wp-article": require("../../components/wp-article/")
-    },
     created:()=>{
         loader().then((articles)=>{
             data.articles = articles

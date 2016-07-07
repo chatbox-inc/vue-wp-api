@@ -62,11 +62,24 @@ Vue.component("wp-article",require("./components/wp-article/"))
 
 ### データとコンポーネントのひも付け
 
-`public/index.html`
+`public/pages/list/template.html`
 
 ````
 <wp-article v-for="article in articles" :article="article"></wp-article>
 ````
+
+### ルーティング・画面の切り替え
+
+Vue.js では、デフォルトではルーティングが含まれていません。
+
+代わりに画面切り替えのためのシンプルな構造をベースに、好きなルーティングライブラリを使用する事が可能です。
+
+````
+  <div :is="page"></div>
+````
+
+`is` ディレクティブによりDOMとコンポーネントを結びつけることで、
+ルーティングによる画面遷移は`page`変数の変更により実現できるようになっています。
 
 ### vue2.0 について
 
