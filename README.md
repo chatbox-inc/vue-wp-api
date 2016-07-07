@@ -87,8 +87,4 @@ Vue.js では、デフォルトではルーティングが含まれていませ�
 
 https://github.com/vuejs/vue/tree/next
 
-````
-npm i vue@2.0.0-alpha.8
-````
-
 gulpfile.js内の resolve.alias の項目をコメントインすることでvue2.0版のコードを試すことが出来ます。
