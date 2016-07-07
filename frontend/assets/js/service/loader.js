@@ -19,7 +19,8 @@ const loading = (minWait)=> new Promise((resolve) => {
     },minWait)
 })
 
-module.exports = (api,page=1,minWait=0) => new Promise((resolve)=>{
+module.exports = (api=null,page=1,minWait=0) => new Promise((resolve)=>{
+    api =  api || "http://api.wp-app.org/wp-json/wp/v2/posts";
     Promise.all([
         request(api,page),
         loading(minWait)
