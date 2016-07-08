@@ -35,6 +35,24 @@ gulp.task("webpack",() => {
         .pipe(gulp.dest(`public/assets/js/`))
 })
 
+gulp.task("webpack:server",() => {
+    const serverConfig = Object.assign({},webpackConfig,{
+        target: 'node',
+        entry: './server/server-entry.js',
+        output: {
+            filename: 'server-bundle.js',
+            libraryTarget: 'commonjs2'
+        },
+        externals:{
+            "superagent":"superagent"
+        }
+    });
+
+    gulp.src([`frontend/assets/js/**/*.js`])
+        .pipe(webpack(serverConfig))
+        .pipe(gulp.dest(`server/`))
+})
+
 gulp.task("watch:webpack",() => gulp.watch([
     "frontend/assets/js/**/*",
 ],["webpack"]) )
