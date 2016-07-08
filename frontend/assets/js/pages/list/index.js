@@ -1,13 +1,14 @@
 "use strict"
 
 const Vue = require("vue")
+
 const loader = require("../../service/loader.js")
 
 let data = {
     articles: []
 }
 
-const Component = Vue.extend({
+const Component = {
     template: require("./template.html"),
     data: ()=> {
         return data
@@ -17,7 +18,7 @@ const Component = Vue.extend({
             data.articles = articles
         })
     }
-})
+}
 
 module.exports = Component
 

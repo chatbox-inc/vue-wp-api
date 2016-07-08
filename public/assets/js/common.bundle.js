@@ -50,14 +50,14 @@
 	
 	console.log(Vue.version);
 	
-	Vue.component("wp-article", __webpack_require__(3));
+	Vue.component("wp-article", Vue.extend(__webpack_require__(3)));
 	
-	$(function () {
-	    var app = new Vue({
+	var page = Vue.extend(__webpack_require__(5));
+	
+	document.addEventListener("DOMContentLoaded", function (event) {
+	    new Vue({
 	        el: "#app",
-	        data: {
-	            page: __webpack_require__(5)
-	        }
+	        data: { page: page }
 	    });
 	});
 
@@ -10274,13 +10274,13 @@
 	
 	var Vue = __webpack_require__(1);
 	
-	var Component = Vue.extend({
+	var Component = {
 	    template: __webpack_require__(4),
 	    props: ["article"],
 	    data: function data() {
 	        return {};
 	    }
-	});
+	};
 	
 	module.exports = Component;
 
@@ -10297,26 +10297,24 @@
 	"use strict";
 	
 	var Vue = __webpack_require__(1);
+	
 	var loader = __webpack_require__(6);
 	
 	var _data = {
 	    articles: []
 	};
 	
-	var Component = Vue.extend({
+	var Component = {
 	    template: __webpack_require__(7),
 	    data: function data() {
 	        return _data;
 	    },
-	    //components:{
-	    //    "wp-article": require("../../components/wp-article/")
-	    //},
 	    created: function created() {
 	        loader().then(function (articles) {
 	            _data.articles = articles;
 	        });
 	    }
-	});
+	};
 	
 	module.exports = Component;
 

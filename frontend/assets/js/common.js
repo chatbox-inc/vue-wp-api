@@ -4,13 +4,13 @@ const Vue = require("vue")
 
 console.log(Vue.version)
 
-Vue.component("wp-article",require("./components/wp-article/"))
+Vue.component("wp-article",Vue.extend(require("./components/wp-article/")))
 
-$(()=>{
-    var app = new Vue({
+var page = Vue.extend(require("./pages/list/"));
+
+document.addEventListener("DOMContentLoaded", (event) => {
+    new Vue({
         el: "#app",
-        data: {
-            page: require("./pages/list/")
-        }
+        data: {page}
     })
 })
