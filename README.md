@@ -88,3 +88,15 @@ Vue.js では、デフォルトではルーティングが含まれていませ�
 https://github.com/vuejs/vue/tree/next
 
 gulpfile.js内の resolve.alias の項目をコメントインすることでvue2.0版のコードを試すことが出来ます。
+
+vue2.0 では仮想DOMを搭載することでレンダリングの高速化、SSRへの対応が図られています。
+
+レンダリング性能の向上については下記をご確認下さい。
+http://qiita.com/mikakane/items/78614572d964420e7e31
+
+SSRについてはssrブランチにて実装があります。
+
+````
+$ gulp webpack:server
+$ VUE_ENV=server ./node_modules/.bin/nodemon ./server/app.js
+````
