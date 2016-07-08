@@ -1,16 +1,17 @@
 "use strict"
 
+var agent = require("superagent")
+
 const request = (api,page)=> new Promise((resolve) => {
-    const xhr = $.get(api,{
+    agent.get(api).query({
         page,
         per_page:10
+    }).end((e,res) => {
+        if(e){
+            throw e;
+        }
+        resolve(res.body)
     })
-    xhr.success((data)=>{
-        resolve(data)
-    });
-    xhr.fail(()=>{
-        throw new Error()
-    });
 })
 
 const loading = (minWait)=> new Promise((resolve) => {
